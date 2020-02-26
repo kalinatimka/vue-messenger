@@ -20,7 +20,7 @@ app.get('/messages', (req, res) => {
 
 app.post('/messages', (req, res) => {
     messages.push(req.body.message);
-    res.json(messages);
+    res.json(req.body.message);
 });
 
 app.listen(port, () => {
