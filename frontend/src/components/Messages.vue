@@ -16,22 +16,15 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
-  data() {
-    return {
-      messages: []
-    };
+  computed: {
+    messages() {
+      return this.$store.state.messages;
+    }
   },
-
+  
   mounted() {
-    this.$root.$on("newMessage", message => {
-      this.messages.push(message);
-    });
-    axios.get("http://localhost:3000/messages").then(res => {
-      this.messages = res.data;
-    });
+    this.$store.dispatch('getMessages');
   }
 };
 </script>

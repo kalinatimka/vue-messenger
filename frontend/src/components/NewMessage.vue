@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   data() {
     return {
@@ -23,9 +21,7 @@ export default {
 
   methods: {
     submit() {
-      axios.post("http://localhost:3000/messages", { message: this.message }).then(res => {
-        this.$root.$emit('newMessage', res.data)
-      });
+      this.$store.dispatch('pushMessage', this.message);
     }
   }
 };
