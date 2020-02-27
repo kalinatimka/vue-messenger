@@ -18,9 +18,17 @@ app.get('/messages', (req, res) => {
     res.send(messages);
 });
 
+app.get('/messages/:id', (req, res) => {
+    res.send(messages[req.params.id]);
+});
+
 app.post('/messages', (req, res) => {
     messages.push(req.body.message);
     res.json(req.body.message);
+});
+
+app.post('/register', (req, res)=>{
+    res.send(req.body);
 });
 
 app.listen(port, () => {

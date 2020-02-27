@@ -20,15 +20,25 @@ export default new Vuex.Store({
 
   actions: {
     getMessages({ commit }) {
-      axios.get("http://localhost:3000/messages").then(res => {
+      axios.get('http://localhost:3000/messages').then(res => {
         commit('setMessages', res.data);
       });
     },
 
     pushMessage({commit}, message) {
-      axios.post("http://localhost:3000/messages", { message: message }).then(res => {
+      axios.post('http://localhost:3000/messages', { message: message }).then(res => {
         commit('newMessage', res.data);
       });
-    }
+    },
+
+    getMessageInfo(state, id) {
+      return axios.get(`http://localhost:3000/messages/${id}`);
+    },
+
+    // register(state, registerData) {
+      // axios.post('http://localhost:3000/messages', { message: message }).then(res => {
+      //   commit('newMessage', res.data);
+      // });
+    // }
   }
 });

@@ -5,10 +5,8 @@
         <v-toolbar-title>Messages</v-toolbar-title>
       </v-toolbar>
       <v-list>
-        <v-list-item v-for="message in messages" :key="message" @click="console.log('')">
-          <v-list-item-content>
-            <v-list-item-title v-text="message"></v-list-item-title>
-          </v-list-item-content>
+        <v-list-item v-for="(message, id) in messages" :key="message" :to="{name: 'messageInfo', params: {messageId: id}}">
+            {{message}}
         </v-list-item>
       </v-list>
     </v-card>
@@ -16,11 +14,13 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
+
 export default {
   computed: {
-    messages() {
-      return this.$store.state.messages;
-    }
+    ...mapState({
+      messages: state => state.messages,
+    }),
   },
   
   mounted() {
