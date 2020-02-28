@@ -14,7 +14,7 @@ const messages = [
     'Jesus',
 ];
 
-app.get('/messages', (req, res) => {
+app.get('/', (req, res) => {
     res.send(messages);
 });
 

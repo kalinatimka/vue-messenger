@@ -1,6 +1,9 @@
 # frontend
 
 ## Project setup
+
+Make sure you start the server from folder `backend` before entering the command.
+
 ```
 npm install
 ```

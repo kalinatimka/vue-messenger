@@ -20,7 +20,7 @@ export default new Vuex.Store({
 
   actions: {
     getMessages({ commit }) {
-      axios.get('http://localhost:3000/messages').then(res => {
+      axios.get('http://localhost:3000/').then(res => {
         commit('setMessages', res.data);
       });
     },
